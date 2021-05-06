@@ -10,5 +10,10 @@ namespace diaryApp_backend.Services.Interfaces
         public Task<User> Login(string email, string password);
         public Task<User> Register(User newUser, string password);
 
+        public Task<User> GetUser(string email);
+
+        public string GetHashpassword(string password);
+        public bool Verifypassword(string password, string hashpassword);
+
     }
 }

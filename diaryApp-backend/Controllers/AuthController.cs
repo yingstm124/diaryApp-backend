@@ -27,13 +27,31 @@ namespace diaryApp_backend.Controllers
         [HttpGet("login/{email}/{password}")]
         public async Task<ActionResult<User>> Login(string email, string password)
         {
-            return await _authService.Login(email, password);
+            var user = await _authService.GetUser(email);
+            if (user != null)
+            {
+                if (_authService.Verifypassword(password, user.Password))
+                {
+                    return user;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else {
+                return null;
+            }
+       
         }
 
         [HttpPost("register")]
         public async Task<ActionResult<User>> Register([FromBody]User user, string password) {
-            return await _authService.Register(user, password);
+
+            string savepassword = _authService.GetHashpassword(password);
+            return await _authService.Register(user, savepassword);
         }
+
 
         
     }
