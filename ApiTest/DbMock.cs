@@ -20,7 +20,9 @@ namespace ApiTest
 
             });
 
-            
+            dbContext.SaveChangesAsync();
+
+
             // add Event
             dbContext.Events.Add(new Events
             {

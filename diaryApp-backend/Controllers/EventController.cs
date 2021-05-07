@@ -51,29 +51,41 @@ namespace diaryApp_backend.Controllers
 
 
 
-
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPost("add")]
         public async Task<ActionResult<Events>> AddEvent([FromBody]Events newEvent) {
 
-            var addEv = await _eventService.addEvent(newEvent);
-
-            if (addEv == null)
-            {
-                return NotFound();
-            }
-  
-            return addEv;
-            
-        }
-
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [HttpPut("edit")]
-        public async Task<ActionResult<Events>> ModifyEvent(int eventId,[FromBody]Events edit_event) {
 
             try
             {
-                var editEv = await _eventService.editEvent(eventId, edit_event);
+                var addEv = await _eventService.addEvent(newEvent);
+
+                if (addEv == null)
+                {
+                    return BadRequest();
+                }
+                else
+                {
+                    return new JsonResult(addEv);
+                }
+
+            }
+
+            catch(Exception) {
+                return StatusCode(500);
+            }
+            
+        }
+
+
+
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [HttpPut("edit/{id}")]
+        public async Task<ActionResult<Events>> ModifyEvent(int id,[FromBody]Events edit_event) {
+
+            try
+            {
+                var editEv = await _eventService.editEvent(id, edit_event);
 
                 if (editEv == null)
                 {
@@ -91,22 +103,22 @@ namespace diaryApp_backend.Controllers
         }
 
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult<Events>> DelEvent(int id) {
 
-            var delEv =  await _eventService.delEvent(id);
 
-            if (delEv == null) {
+            try {
+                var delEv = await _eventService.delEvent(id);
+                return new JsonResult(delEv);
+            }
+            catch (Exception) {
                 return NotFound();
             }
-            else {
-                return delEv;
-            }
+
+            
+
         }
 
-
-
-       
 
         
     }

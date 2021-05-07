@@ -98,8 +98,9 @@ namespace ApiTest
             var res = await controller.AddEvent(newEv);
             dbContext.Dispose();
 
-            //Assert.IsType<StatusCodeResult>(res.Result);
-            Assert.Null(res.Result);
+            Assert.Equal(500, ((StatusCodeResult)res.Result).StatusCode);
+            //Assert.Null(res.Result);
+
         }
 
 
@@ -174,11 +175,10 @@ namespace ApiTest
             var eventServe = new EventService(dbContext);
             var controller = new EventController(eventServe);
 
-            var res = await controller.DelEvent(1);
+            var res = await controller.DelEvent(10);
             dbContext.Dispose();
 
-            //Assert.IsType<NotFoundResult>(res.Result);
-            Assert.Null(res.Result);
+            Assert.Equal(404, ((StatusCodeResult)res.Result).StatusCode);
         }
         
 
