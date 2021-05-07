@@ -1,24 +1,45 @@
 ﻿<Properties StartupConfiguration="{C4BFE555-82A0-48C7-B481-E5281BB0CD09}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="diaryApp-backend/Migrations/20210506033014_MyFirstMigration.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="diaryApp-backend/Services/EventService.cs">
     <Files>
-      <File FileName="diaryApp-backend/Controllers/EventController.cs" Line="1" Column="1" />
-      <File FileName="diaryApp-backend/Controllers/AuthController.cs" Line="41" Column="14" />
-      <File FileName="diaryApp-backend/Migrations/20210506033014_MyFirstMigration.cs" Line="1" Column="1" />
-      <File FileName="diaryApp-backend/Services/Interfaces/IAuthService.cs" Line="13" Column="34" NotebookId="1" />
-      <File FileName="diaryApp-backend/Services/AuthService.cs" Line="73" Column="29" NotebookId="1" />
+      <File FileName="diaryApp-backend/Controllers/AuthController.cs" Line="1" Column="1" />
+      <File FileName="diaryApp-backend/Controllers/EventController.cs" Line="59" Column="1" />
+      <File FileName="diaryApp-backend/Services/EventService.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="diaryApp-backend" expanded="True">
+            <Node name="ApiTest" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+            </Node>
             <Node name="diaryApp-backend" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
-              <Node name="Migrations" expanded="True">
-                <Node name="20210506033014_MyFirstMigration.cs" selected="True" />
-              </Node>
+              <Node name="Migrations" expanded="True" />
               <Node name="Services" expanded="True">
                 <Node name="Interfaces" expanded="True" />
+                <Node name="EventService.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="diaryApp-backend" expanded="True">
+            <Node name="ApiTest" expanded="True">
+              <Node name="ApiTest" expanded="True">
+                <Node name="AuthCtrlTest" expanded="True" />
+                <Node name="EventCtrlTest" expanded="True">
+                  <Node name="EditEventError" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -30,7 +51,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/macbook/Projects/diaryApp-backend/diaryApp-backend/Services/EventService.cs" relfile="diaryApp-backend/Services/EventService.cs" line="96" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

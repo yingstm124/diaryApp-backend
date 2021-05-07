@@ -7,12 +7,12 @@ namespace diaryApp_backend.Services.Interfaces
 {
     public interface IEventService
     {
-        public Task<List<Event>> GetEvents(string uid);
-        public Task<Event> GetEventDetail(int eventId);
-        public Task<List<Event>> SearchByEventName(string name);
-        public Task<Event> addEvent(Event newEvent);
-        public Task<Event> editEvent(int id, Event newEvent);
-        public Task<Event> delEvent(int id);
+        public Task<List<Events>> GetEvents(string uid);
+        public Task<Events> GetEventDetail(int eventId);
+        public Task<List<Events>> SearchByEventName(string name);
+        public Task<Events> addEvent(Events newEvent);
+        public Task<Events> editEvent(int id, Events newEvent);
+        public Task<Events> delEvent(int id);
     }
 
     

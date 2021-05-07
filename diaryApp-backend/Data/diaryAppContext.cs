@@ -17,8 +17,8 @@ namespace diaryApp_backend
         {
         }
 
-        public virtual DbSet<Event> Events { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Events> Events { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,7 +33,7 @@ namespace diaryApp_backend
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.Entity<Event>(entity =>
+            modelBuilder.Entity<Events>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("id");
 
@@ -65,7 +65,7 @@ namespace diaryApp_backend
                     .HasConstraintName("FK_events");
             });
 
-            modelBuilder.Entity<User>(entity =>
+            modelBuilder.Entity<Users>(entity =>
             {
                 entity.Property(e => e.Id)
                     .HasMaxLength(255)
@@ -101,6 +101,10 @@ namespace diaryApp_backend
                     .IsRequired()
                     .IsUnicode(false)
                     .HasColumnName("password");
+
+                entity.Property(e => e.ProfileImage)
+                   .IsUnicode(false)
+                   .HasColumnName("ProfileImage");
 
             });
 

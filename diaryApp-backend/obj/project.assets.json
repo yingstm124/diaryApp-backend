@@ -461,6 +461,18 @@
           "build/netcoreapp3.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/5.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.5"
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/5.0.5": {
         "type": "package",
         "dependencies": {
@@ -2877,6 +2889,20 @@
         "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.xml",
         "microsoft.entityframeworkcore.design.5.0.5.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/5.0.5": {
+      "sha512": "hJMrS3eI01HGx1zaTr8KSRB5yK+RkCammBGvQ7uKDjtuhqjA0iF8aBg0cGVDzSvN3Eh37ydc1ZH5JbblBcBs+g==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.inmemory/5.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "microsoft.entityframeworkcore.inmemory.5.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/5.0.5": {
@@ -7644,6 +7670,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Microsoft.EntityFrameworkCore.InMemory >= 5.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.5",
       "Microsoft.EntityFrameworkCore.Sqlite >= 5.0.4",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.5",
@@ -7664,7 +7691,7 @@
       "outputPath": "/Users/macbook/Projects/diaryApp-backend/diaryApp-backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/macbook/.nuget/NuGet/NuGet.Config"
+        "/Users/macbook/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -7688,6 +7715,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[5.0.5, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[5.0.5, )"

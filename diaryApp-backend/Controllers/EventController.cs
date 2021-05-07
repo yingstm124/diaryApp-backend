@@ -15,22 +15,24 @@ namespace diaryApp_backend.Controllers
     public class EventController : ControllerBase
     {
         private readonly IEventService _eventService;
+        private diaryAppContext dbContext;
 
         public EventController(IEventService eventService)
         {
             _eventService = eventService;
         }
 
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet("{uid}")]
-        public async Task<ActionResult<IEnumerable<Event>>> GetEvents(string uid) {
+        public async Task<ActionResult<IEnumerable<Events>>> GetEvents(string uid) {
 
             return await _eventService.GetEvents(uid);
         }
 
-        [ProducesResponseType(StatusCodes.Status200OK)]
+   
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet("detail/{id}")]
-        public async Task<ActionResult<Event>> GetEventDetail(int id) {
+        public async Task<ActionResult<Events>> GetEventDetail(int id) {
 
             var task = await _eventService.GetEventDetail(id);
             if (task == null)
@@ -40,29 +42,68 @@ namespace diaryApp_backend.Controllers
             return task;
         }
 
-        [HttpGet("serach/{name}")]
-        public async Task<ActionResult<IEnumerable<Event>>> SearchByName(string name) {
+
+        [HttpGet("search/{name}")]
+        public async Task<ActionResult<IEnumerable<Events>>> SearchByName(string name) {
 
             return await _eventService.SearchByEventName(name);
         }
 
 
+
+
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpPost("add")]
-        public async Task<ActionResult<Event>> AddEvent([FromBody]Event newEvent) {
-            return await _eventService.addEvent(newEvent);
+        public async Task<ActionResult<Events>> AddEvent([FromBody]Events newEvent) {
+
+            var addEv = await _eventService.addEvent(newEvent);
+
+            if (addEv == null)
+            {
+                return NotFound();
+            }
+  
+            return addEv;
+            
         }
 
-
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPut("edit")]
-        public async Task<ActionResult<Event>> ModifyEvent(int eventId,[FromBody]Event edit_event) {
-            return await _eventService.editEvent(eventId, edit_event);
+        public async Task<ActionResult<Events>> ModifyEvent(int eventId,[FromBody]Events edit_event) {
+
+            try
+            {
+                var editEv = await _eventService.editEvent(eventId, edit_event);
+
+                if (editEv == null)
+                {
+                    return BadRequest();
+                }
+                else
+                {
+                    return new JsonResult(editEv);
+                }
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
         }
 
-
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpDelete("id")]
-        public async Task<ActionResult<Event>> DelEvent(int id) {
-            return await _eventService.delEvent(id);
+        public async Task<ActionResult<Events>> DelEvent(int id) {
+
+            var delEv =  await _eventService.delEvent(id);
+
+            if (delEv == null) {
+                return NotFound();
+            }
+            else {
+                return delEv;
+            }
         }
+
 
 
        

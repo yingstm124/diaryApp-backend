@@ -7,10 +7,10 @@ namespace diaryApp_backend.Services.Interfaces
     public interface IAuthService
     {
 
-        public Task<User> Login(string email, string password);
-        public Task<User> Register(User newUser, string password);
+        public Task<Users> Login(string email, string password);
+        public Task<Users> Register(Users newUser);
 
-        public Task<User> GetUser(string email);
+        public Task<Users> GetUser(string email);
 
         public string GetHashpassword(string password);
         public bool Verifypassword(string password, string hashpassword);

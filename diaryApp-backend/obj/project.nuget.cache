@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "FH4Qnc3EovdPF3zQXdsmbTRz8x6wAi9gY0C4ZPFeQ0JbrGdO9V5W4QDtUCAaP6geMX/ABT6l3CPKn/YRqhoMEQ==",
+  "dgSpecHash": "+CLJkW7hNKK9s9p6HEFMAyG/MGNy+rIG/+7VW2LUF4aI9ixT+FJp3+RND2v6lHEGsvUF+tyA8lll0zhYIkn35g==",
   "success": true,
   "projectFilePath": "/Users/macbook/Projects/diaryApp-backend/diaryApp-backend/diaryApp-backend.csproj",
   "expectedPackageFiles": [
@@ -25,6 +25,7 @@
     "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.abstractions/5.0.5/microsoft.entityframeworkcore.abstractions.5.0.5.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.analyzers/5.0.5/microsoft.entityframeworkcore.analyzers.5.0.5.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.design/5.0.5/microsoft.entityframeworkcore.design.5.0.5.nupkg.sha512",
+    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.inmemory/5.0.5/microsoft.entityframeworkcore.inmemory.5.0.5.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.relational/5.0.5/microsoft.entityframeworkcore.relational.5.0.5.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.sqlite/5.0.4/microsoft.entityframeworkcore.sqlite.5.0.4.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.sqlite.core/5.0.4/microsoft.entityframeworkcore.sqlite.core.5.0.4.nupkg.sha512",

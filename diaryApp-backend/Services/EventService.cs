@@ -11,14 +11,16 @@ namespace diaryApp_backend.Services
     {
         private readonly diaryAppContext db = new diaryAppContext();
 
-        public EventService()
+        public EventService(diaryAppContext dbContext)
         {
+            db = dbContext;
         }
-        public async Task<List<Event>> GetEvents(string uid) {
+        public async Task<List<Events>> GetEvents(string uid) {
 
             var events = await db.Events.Where(e => e.UserId == uid).ToListAsync();
 
-            return events.Select(e => new Event()
+     
+            return events.Select(e => new Events()
             {
                 Id = e.Id,
                 DateTime = e.DateTime,
@@ -31,7 +33,7 @@ namespace diaryApp_backend.Services
         }
 
 
-        public async Task<Event> GetEventDetail(int id)
+        public async Task<Events> GetEventDetail(int id)
         {
             var detail = await db.Events.Where(d => d.Id == id).FirstOrDefaultAsync();
 
@@ -43,7 +45,7 @@ namespace diaryApp_backend.Services
             }
         }
 
-        public async Task<List<Event>> SearchByEventName(string name) {
+        public async Task<List<Events>> SearchByEventName(string name) {
 
             var content = await db.Events.Where(e => e.EventName == name).ToListAsync();
 
@@ -56,10 +58,10 @@ namespace diaryApp_backend.Services
 
         }
 
-        public async Task<Event> addEvent(Event eventObj)
+        public async Task<Events> addEvent(Events eventObj)
         {
 
-            var ev = new Event()
+            var ev = new Events()
             {
 
                 DateTime = eventObj.DateTime,
@@ -77,6 +79,7 @@ namespace diaryApp_backend.Services
 
             catch (DbUpdateConcurrencyException err)
             {
+               
                 throw err;
             }
 
@@ -86,26 +89,27 @@ namespace diaryApp_backend.Services
 
         }
 
-        public async Task<Event> editEvent(int id, Event newEvent)
+        public async Task<Events> editEvent(int id, Events newEvent)
         {
-            var editObj = db.Events.First(a => a.Id == id);
-
-            editObj.EventName = newEvent.EventName;
-            editObj.Memo = newEvent.Memo;
-
             try
             {
-                await db.SaveChangesAsync();
+                var userObj = db.Users.Single(u => u.Id == newEvent.UserId);
             }
-            catch (DbUpdateConcurrencyException err)
+            catch (Exception err)
             {
                 throw err;
             }
 
+            var editObj = db.Events.First(a => a.Id == id);
+
+            editObj.EventName = newEvent.EventName;
+            editObj.Memo = newEvent.Memo;
+            await db.SaveChangesAsync();
+            
             return newEvent;
         }
 
-        public async Task<Event> delEvent(int id)
+        public async Task<Events> delEvent(int id)
         {
             var delObj = db.Events.Find(id);
 
@@ -118,11 +122,13 @@ namespace diaryApp_backend.Services
                 await db.SaveChangesAsync();
                 
             }
-            catch (DbUpdateConcurrencyException err) {
+            catch (DbUpdateConcurrencyException err)
+            {
                 throw err;
+                //return null;
             }
 
-            return new Event()
+            return new Events()
             {
                 Id = delObj.Id,
                 DateTime = delObj.DateTime,

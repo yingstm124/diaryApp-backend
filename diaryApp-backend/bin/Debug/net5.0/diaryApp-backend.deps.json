@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "diaryApp-backend/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore.InMemory": "5.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.5",
           "Microsoft.EntityFrameworkCore.Sqlite": "5.0.4",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.5",
@@ -664,7 +665,7 @@
           "runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.0.1.0"
           },
           "runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.pdb": {
             "rid": "win-arm",
@@ -674,7 +675,7 @@
           "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.0.1.0"
           },
           "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.pdb": {
             "rid": "win-arm64",
@@ -684,7 +685,7 @@
           "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.0.1.0"
           },
           "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.pdb": {
             "rid": "win-x64",
@@ -694,7 +695,7 @@
           "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.0.1.0"
           },
           "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb": {
             "rid": "win-x86",
@@ -772,6 +773,20 @@
             "assemblyVersion": "5.0.5.0",
             "fileVersion": "5.0.521.16102"
           }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.InMemory/5.0.5": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.5"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "assemblyVersion": "5.0.5.0",
+            "fileVersion": "5.0.521.16102"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Relational/5.0.5": {
@@ -1059,12 +1074,12 @@
           "runtimes/win-arm/lib/net5.0/dotnet-aspnet-codegenerator-design.exe": {
             "rid": "win-arm",
             "assetType": "runtime",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "5.0.221.10809"
           },
           "runtimes/win-arm64/lib/net5.0/dotnet-aspnet-codegenerator-design.exe": {
             "rid": "win-arm64",
             "assetType": "runtime",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "5.0.221.10809"
           }
         },
         "compile": {
@@ -3890,6 +3905,13 @@
       "sha512": "sha512-bEjgWGrEWtCQl1A3wx1xW+tALhuWHG+0hXFr9G+GrwkVLaZiW0tILqRx1DJ0y4t12dUf8tMsv0LMokKIf8IOFw==",
       "path": "microsoft.entityframeworkcore.design/5.0.5",
       "hashPath": "microsoft.entityframeworkcore.design.5.0.5.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/5.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hJMrS3eI01HGx1zaTr8KSRB5yK+RkCammBGvQ7uKDjtuhqjA0iF8aBg0cGVDzSvN3Eh37ydc1ZH5JbblBcBs+g==",
+      "path": "microsoft.entityframeworkcore.inmemory/5.0.5",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.5.0.5.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/5.0.5": {
       "type": "package",

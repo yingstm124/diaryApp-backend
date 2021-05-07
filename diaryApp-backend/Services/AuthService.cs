@@ -15,8 +15,9 @@ namespace diaryApp_backend.Services
     {
         private readonly diaryAppContext db = new diaryAppContext();
 
-        public AuthService()
+        public AuthService(diaryAppContext dbContext)
         {
+            db = dbContext;
         }
 
         public string GetHashpassword(string password) {
@@ -63,7 +64,7 @@ namespace diaryApp_backend.Services
 
         }
 
-        public async Task<User> GetUser(string email) {
+        public async Task<Users> GetUser(string email) {
             var user = await db.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
             if (user == null)
             {
@@ -74,7 +75,7 @@ namespace diaryApp_backend.Services
             }
         }
 
-        public async Task<User> Login(string email, string password) {
+        public async Task<Users> Login(string email, string password) {
 
             var user = await db.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
 
@@ -96,11 +97,11 @@ namespace diaryApp_backend.Services
             return user;
         }
 
-        public async Task<User> Register(User newUser, string password)
+        public async Task<Users> Register(Users newUser)
         {
 
     
-            var user = new User()
+            var user = new Users()
             {
                 Id = Guid.NewGuid().ToString(),
                 Fname = newUser.Fname,
@@ -108,7 +109,7 @@ namespace diaryApp_backend.Services
                 Nickname = newUser.Nickname,
                 Birthdate = newUser.Birthdate,
                 Email = newUser.Email,
-                Password = password
+                Password = newUser.Password
             };
 
 

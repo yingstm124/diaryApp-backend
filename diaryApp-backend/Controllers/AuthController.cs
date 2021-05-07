@@ -25,7 +25,7 @@ namespace diaryApp_backend.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet("login/{email}/{password}")]
-        public async Task<ActionResult<User>> Login(string email, string password)
+        public async Task<ActionResult<Users>> Login(string email, string password)
         {
             var user = await _authService.GetUser(email);
             if (user != null)
@@ -46,10 +46,12 @@ namespace diaryApp_backend.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<User>> Register([FromBody]User user, string password) {
+        public async Task<ActionResult<Users>> Register([FromBody]Users user) {
 
-            string savepassword = _authService.GetHashpassword(password);
-            return await _authService.Register(user, savepassword);
+            string savepassword = _authService.GetHashpassword(user.Password);
+
+            user.Password = savepassword;
+            return await _authService.Register(user);
         }
 
 
