@@ -66,7 +66,7 @@ namespace diaryApp_backend.Controllers
                 }
                 else
                 {
-                    return new JsonResult(addEv);
+                    return addEv;
                 }
 
             }
@@ -93,7 +93,7 @@ namespace diaryApp_backend.Controllers
                 }
                 else
                 {
-                    return new JsonResult(editEv);
+                    return editEv;
                 }
             }
             catch (Exception)
@@ -109,7 +109,7 @@ namespace diaryApp_backend.Controllers
 
             try {
                 var delEv = await _eventService.delEvent(id);
-                return new JsonResult(delEv);
+                return delEv;
             }
             catch (Exception) {
                 return NotFound();
