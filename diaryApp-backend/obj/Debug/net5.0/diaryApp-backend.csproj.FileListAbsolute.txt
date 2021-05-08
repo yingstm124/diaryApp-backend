@@ -153,3 +153,4 @@
 /Users/macbook/Projects/diaryApp-backend/diaryApp-backend/obj/Debug/net5.0/ref/diaryApp-backend.dll
 /Users/macbook/Projects/diaryApp-backend/diaryApp-backend/obj/Debug/net5.0/diaryApp-backend.pdb
 /Users/macbook/Projects/diaryApp-backend/diaryApp-backend/obj/Debug/net5.0/diaryApp-backend.genruntimeconfig.cache
+/Users/macbook/Projects/diaryApp-backend/diaryApp-backend/obj/Debug/net5.0/diaryApp-backend.csprojAssemblyReference.cache
