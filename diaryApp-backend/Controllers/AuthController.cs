@@ -26,7 +26,13 @@ namespace diaryApp_backend.Controllers
             _iimageService = iimageService;
         }
 
-        
+        // Contructor
+        public AuthController(IAuthService authService)
+        {
+            _authService = authService;
+        }
+
+
         // GET: Login
         [HttpGet("login/{email}/{password}")]
         public async Task<ActionResult<Users>> Login(string email, string password)
@@ -53,12 +59,6 @@ namespace diaryApp_backend.Controllers
         // POST: register new user
         [HttpPost("register")]
         public async Task<ActionResult<Users>> Register([FromForm]Users user) {
-
-            //check picture
-            //if (!ModelState.IsValid)
-            //{
-            //    return BadRequest(ModelState);
-            //}
 
 
             if (user.ImageFile != null) {
