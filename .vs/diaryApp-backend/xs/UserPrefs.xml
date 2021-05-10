@@ -1,23 +1,24 @@
 ﻿<Properties StartupConfiguration="{C4BFE555-82A0-48C7-B481-E5281BB0CD09}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ApiTest/AuthCtrlTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="diaryApp-backend/Startup.cs">
     <Files>
-      <File FileName="diaryApp-backend/Controllers/AuthController.cs" Line="20" Column="1" />
+      <File FileName="diaryApp-backend/Controllers/AuthController.cs" Line="68" Column="14" />
       <File FileName="ApiTest/AuthCtrlTest.cs" Line="36" Column="56" />
-      <File FileName="diaryApp-backend/Services/ImageService.cs" Line="1" Column="1" />
+      <File FileName="diaryApp-backend/Services/ImageService.cs" Line="34" Column="92" />
+      <File FileName="diaryApp-backend/Services/AuthService.cs" Line="1" Column="1" />
+      <File FileName="diaryApp-backend/Startup.cs" Line="42" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="diaryApp-backend" expanded="True">
-            <Node name="ApiTest" expanded="True">
-              <Node name="AuthCtrlTest.cs" selected="True" />
-            </Node>
+            <Node name="ApiTest" expanded="True" />
             <Node name="diaryApp-backend" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Services" expanded="True">
                 <Node name="Interfaces" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>

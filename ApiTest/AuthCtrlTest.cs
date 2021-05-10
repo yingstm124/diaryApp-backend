@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using diaryApp_backend;
 using diaryApp_backend.Controllers;
 using diaryApp_backend.Services;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
@@ -12,6 +13,7 @@ namespace ApiTest
 {
     public class AuthCtrlTest
     {
+        public static IWebHostEnvironment hostEnvironment;
 
         /// create database
         public diaryAppContext createTestingDB(string name)
@@ -31,10 +33,13 @@ namespace ApiTest
         [Fact]
         public async Task LoginSuccess()
         {
-
+            
             var dbContext = createTestingDB(nameof(LoginSuccess));
             var userServe = new AuthService(dbContext);
-            var controller = new AuthController(userServe);
+
+            
+            var imageServe = new ImageService(hostEnvironment);
+            var controller = new AuthController(userServe, imageServe);
 
             var res = await controller.Login("testUser1@test.com", "12345");
 
@@ -50,7 +55,8 @@ namespace ApiTest
 
             var dbContext = createTestingDB(nameof(RegisterSuccess));
             var userServe = new AuthService(dbContext);
-            var controller = new AuthController(userServe);
+            var imageServe = new ImageService(hostEnvironment);
+            var controller = new AuthController(userServe, imageServe);
 
             var uid = Guid.NewGuid().ToString();
             var newUser = new Users()
@@ -78,7 +84,8 @@ namespace ApiTest
 
             var dbContext = createTestingDB(nameof(RegisterError));
             var userServe = new AuthService(dbContext);
-            var controller = new AuthController(userServe);
+            var imageServe = new ImageService(hostEnvironment);
+            var controller = new AuthController(userServe, imageServe);
 
             var uid = Guid.NewGuid().ToString();
             var newUser = new Users()

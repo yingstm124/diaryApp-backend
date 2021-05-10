@@ -27,10 +27,10 @@ namespace diaryApp_backend.Controllers
         }
 
         // Contructor
-        public AuthController(IAuthService authService)
-        {
-            _authService = authService;
-        }
+        //public AuthController(IAuthService authService)
+        //{
+        //    _authService = authService;
+        //}
 
 
         // GET: Login
@@ -61,12 +61,13 @@ namespace diaryApp_backend.Controllers
         public async Task<ActionResult<Users>> Register([FromForm]Users user) {
 
 
-            if (user.ImageFile != null) {
+            if (user.ImageFile != null)
+            {
 
                 user.ProfileImage = await _iimageService.UploadImage(user.ImageFile);
             }
 
-            
+
             string savepassword = _authService.GetHashpassword(user.Password);
 
             user.Password = savepassword;
